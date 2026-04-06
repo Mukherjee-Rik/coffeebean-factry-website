@@ -59,7 +59,7 @@ export default function Contact() {
           <div className="rounded-2xl overflow-hidden shadow-xl" style={{ height: 340 }}>
             <iframe
               title="Bean Fact'ry Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14577!2d91.282!3d23.831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375215b2a0a2b22d%3A0x0!2zQWdhcnRhbGE!5e0!3m2!1sen!2sin!4v1!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7299.197889675215!2d91.28962005320093!3d23.832856411191617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3753f300746dc481%3A0x3e030194399804f5!2sBean%20Fact%27ry!5e0!3m2!1sen!2sin!4v1775457479597!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
