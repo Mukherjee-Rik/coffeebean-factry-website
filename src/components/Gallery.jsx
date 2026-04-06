@@ -1,7 +1,5 @@
 import { useReveal } from "../hooks/useReveal";
 
-// Import your actual cafe photos
-// Place all these images inside src/assets/gallery/ folder
 import img1 from "../assets/gallery/exterior.png";
 import img2 from "../assets/gallery/interior1.png";
 import img3 from "../assets/gallery/interior2.png";
@@ -18,37 +16,20 @@ const items = [
     label: "Bean Fact'ry — Agartala",
     span: "col-span-2 row-span-2",
     minH: 340,
+    fit: "object-contain",   // ← show the FULL entrance, no cropping
+    bg: "#1a0f0b",           // dark background behind image
   },
-  {
-    img: img2,
-    label: "Cozy Interiors",
-    span: "",
-    minH: 160,
-  },
-  {
-    img: img3,
-    label: "Dining Area",
-    span: "",
-    minH: 160,
-  },
-  {
-    img: img4,
-    label: "Lounge Seating",
-    span: "col-span-2",
-    minH: 200,
-  },
-  {
-    img: img5,
-    label: "The Coffee Bar",
-    span: "",
-    minH: 160,
-  },
-  {
-    img: img6,
-    label: "Green Velvet Chairs",
-    span: "",
-    minH: 160,
-  },
+  { img: img2, label: "Cozy Interiors",      span: "",           minH: 160, fit: "object-cover", bg: "transparent" },
+  { img: img3, label: "Dining Area",         span: "",           minH: 160, fit: "object-cover", bg: "transparent" },
+  { img: img4, label: "Lounge Seating",      span: "col-span-2", minH: 200, fit: "object-cover", bg: "transparent" },
+  { img: img5, label: "The Coffee Bar",      span: "",           minH: 160, fit: "object-cover", bg: "transparent" },
+  { img: img6, label: "Green Velvet Chairs", span: "",           minH: 160, fit: "object-cover", bg: "transparent" },
+];
+
+const bottomItems = [
+  { img: img7, label: "Wooden Ceiling" },
+  { img: img8, label: "Warm Lighting"  },
+  { img: img9, label: "The Lounge"     },
 ];
 
 export default function Gallery() {
@@ -75,22 +56,19 @@ export default function Gallery() {
           {items.map((item, i) => (
             <div
               key={i}
-              className={`gallery-item relative rounded-2xl overflow-hidden cursor-pointer group ${item.span}`}
-              style={{ minHeight: item.minH }}
+              className={`relative rounded-2xl overflow-hidden cursor-pointer group ${item.span}`}
+              style={{ minHeight: item.minH, backgroundColor: item.bg }}
             >
-              {/* Real photo */}
               <img
                 src={item.img}
                 alt={item.label}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className={`w-full h-full ${item.fit} object-center transition-transform duration-500 group-hover:scale-105`}
                 style={{ minHeight: item.minH }}
               />
-
-              {/* Warm color overlay — always slightly on, stronger on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/80 via-[#3E2723]/10 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
-
+              {/* Dark gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/75 via-transparent to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300" />
               {/* Label */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-4">
                 <span className="text-[#F4E1C1] font-semibold text-sm drop-shadow-lg">
                   {item.label}
                 </span>
@@ -99,24 +77,24 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* Extra row — remaining photos in equal columns */}
+        {/* Bottom row */}
         <div className="grid grid-cols-3 gap-4 mt-4">
-          {[img7, img8, img9].map((img, i) => (
+          {bottomItems.map((item, i) => (
             <div
               key={i}
-              className="gallery-item relative rounded-2xl overflow-hidden cursor-pointer group"
+              className="relative rounded-2xl overflow-hidden cursor-pointer group"
               style={{ minHeight: 180 }}
             >
               <img
-                src={img}
-                alt={`cafe-${i}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                src={item.img}
+                alt={item.label}
+                className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 style={{ minHeight: 180 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/80 via-transparent to-transparent opacity-50 group-hover:opacity-90 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/75 via-transparent to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <span className="text-[#F4E1C1] font-semibold text-sm drop-shadow-lg">
-                  {["Wooden Ceiling", "Warm Lighting", "The Lounge"][i]}
+                  {item.label}
                 </span>
               </div>
             </div>

@@ -9,6 +9,7 @@ import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
+import TableBooking from "./components/TableBooking";
 
 export default function App() {
   const [dark, setDark] = useState(false);
@@ -35,6 +36,7 @@ export default function App() {
           <Gallery />
           <WhyUs />
           <Testimonials />
+          <TableBooking />
           <Contact />
           <Footer />
         </div>

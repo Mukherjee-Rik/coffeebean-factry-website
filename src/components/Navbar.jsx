@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const links = ["About", "Menu", "Gallery", "Why Us", "Contact"];
+const links = ["About", "Menu", "Gallery", "Why Us", "Contact", "Book Table"]; // ✅ ADDED HERE
 
 export default function Navbar({ dark, setDark }) {
   const [scrolled, setScrolled] = useState(false);
