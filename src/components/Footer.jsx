@@ -18,7 +18,7 @@ export default function Footer() {
               {["📘", "📸", "🐦", "▶️"].map((icon, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href="#!"
                   className="w-10 h-10 rounded-full bg-[#D7A86E]/15 border border-[#D7A86E]/20 flex items-center justify-center text-[#D7A86E] hover:bg-[#C68B59] hover:border-[#C68B59] hover:text-white transition-all no-underline"
                 >
                   {icon}
